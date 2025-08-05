@@ -27,3 +27,10 @@ Haciendo push...
 branch 'main' set up to track 'origin/main'.
 [2025-08-05 07:42:46]  Push exitoso
 ========== 2025-08-05 07:48:08 ==========
+Mensaje de commit (dejar vacío para 'Auto-commit'): Haciendo commit...
+[main 744efa2] Cmabiando nombre para alojar en github
+ 2 files changed, 1 insertion(+)
+ rename main.html => index.html (100%)
+Haciendo push...
+branch 'main' set up to track 'origin/main'.
+[2025-08-05 07:48:08]  Push exitoso
