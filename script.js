@@ -5,6 +5,7 @@ const iniciarBtn = document.getElementById('iniciarBtn');
 const cambiarNivelBtn = document.getElementById('cambiarNivelBtn');
 const coordenadasDisplay = document.getElementById('coordenadasDiana');
 const intentosDisplay = document.getElementById('intentosRestantes');
+const mensajeDisplay = document.getElementById('mensajeJuego');
 const aInput = document.getElementById('a');
 const bInput = document.getElementById('b');
 const cInput = document.getElementById('c');
@@ -22,7 +23,7 @@ let animacionId;
 let x_pelota;
 let targetX, targetY;
 let juegoActivo = false;
-let intentosRestantes = 3; // ¡NUEVO! Contador de intentos
+let intentosRestantes = 3;
 
 // --- FUNCIONES DE DIBUJO ---
 function dibujarEjes() {
@@ -79,6 +80,17 @@ function dibujarDiana(x, y) {
     ctx.closePath();
 }
 
+// --- FUNCIONES PARA MANEJAR MENSAJES ---
+function mostrarMensaje(texto, tipo = 'info') {
+    mensajeDisplay.textContent = texto;
+    mensajeDisplay.className = ''; // Limpia clases anteriores
+    mensajeDisplay.classList.add('visible', tipo);
+}
+
+function ocultarMensaje() {
+    mensajeDisplay.className = '';
+}
+
 // --- FUNCIONES DE LÓGICA DEL JUEGO ---
 function generarNuevaDiana() {
     const maxGraphX = (anchoCanvas - centroX) / escala - 2;
@@ -113,10 +125,14 @@ function manejarFallo() {
     actualizarPantallaIntentos();
     
     if (intentosRestantes > 0) {
-        alert("¡PERDISTE! Te quedan " + intentosRestantes + " intentos.");
-        reiniciarNivel();
+        mostrarMensaje("¡Fallaste! Quedan " + intentosRestantes + " intentos.", 'error');
+        setTimeout(() => { // Espera para que el mensaje se lea
+            ocultarMensaje();
+            reiniciarNivel();
+        }, 2000);
     } else {
-        alert("¡JUEGO TERMINADO! Te has quedado sin intentos. Presiona 'Nuevo Nivel' para volver a jugar.");
+        mostrarMensaje("¡PERDISTE!" + "\n" + "Intenta de Nuevo", 'error');
+        // El juego se queda bloqueado hasta presionar "Nuevo Nivel"
     }
 }
 
@@ -139,8 +155,8 @@ function animar() {
 
     if (distancia < 0.7) {
         juegoActivo = false;
-        alert("¡GANASTE! ¡Le diste a la diana! Presiona 'Nuevo Nivel' para el siguiente desafío.");
-        iniciarBtn.disabled = true; // Deshabilitar hasta que se cambie de nivel
+        mostrarMensaje("¡GANASTE!", 'exito');
+        iniciarBtn.disabled = true;
         return;
     }
 
@@ -160,17 +176,19 @@ iniciarBtn.addEventListener('click', () => {
     if (juegoActivo || intentosRestantes === 0) return;
     
     if (aInput.value === '' || bInput.value === '' || cInput.value === '') {
-        alert("Por favor, introduce valores para a, b y c.");
+        mostrarMensaje("Ingresa valores para a, b y c.", 'info');
         return;
     }
     
-    x_pelota = 0; // Reiniciar la posición de la pelota para el nuevo lanzamiento
+    ocultarMensaje(); // Ocultar mensaje al iniciar
+    x_pelota = 0;
     juegoActivo = true;
     animar();
 });
 
 cambiarNivelBtn.addEventListener('click', () => {
-    intentosRestantes = 3; // Restablecer los intentos
+    ocultarMensaje();
+    intentosRestantes = 3;
     generarNuevaDiana();
     reiniciarNivel();
 });

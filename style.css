@@ -19,6 +19,8 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     text-align: center;
     max-width: 900px;
+    /* Posicionamiento relativo para que el mensaje se ubique sobre este contenedor */
+    position: relative;
 }
 
 header h1 {
@@ -126,4 +128,49 @@ canvas {
     width: 100%;
     max-width: 800px;
     height: auto;
+}
+
+/* --- ESTILOS PARA EL DIV DE MENSAJES --- */
+#mensajeJuego {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    padding: 20px 40px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    font-size: 1.8em;
+    font-weight: 600;
+    text-align: center;
+    z-index: 10; /* Se asegura de que esté sobre el canvas */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Oculto por defecto */
+    opacity: 0;
+    pointer-events: none; /* No se puede hacer clic cuando es invisible */
+}
+
+/* Clase para hacer visible el mensaje */
+#mensajeJuego.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Estilo para mensajes de éxito */
+#mensajeJuego.exito {
+    color: #28a745;
+    border: 3px solid #28a745;
+}
+
+/* Estilo para mensajes de error/fallo */
+#mensajeJuego.error {
+    color: #dc3545;
+    border: 3px solid #dc3545;
+}
+
+/* Estilo para mensajes informativos */
+#mensajeJuego.info {
+    color: #007bff;
+    border: 3px solid #007bff;
 }
