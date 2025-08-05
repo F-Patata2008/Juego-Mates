@@ -1,0 +1,129 @@
+/* Importar una fuente para un look más moderno */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #6dd5ed, #2193b0);
+    color: #333;
+}
+
+.contenedor-principal {
+    background-color: white;
+    padding: 25px 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 900px;
+}
+
+header h1 {
+    font-size: 2.8em;
+    color: #005A9C;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 0;
+}
+
+.panel-info {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+#coordenadasDiana {
+    color: #2193b0;
+    background-color: #f0f8ff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid #bde0fe;
+}
+
+#intentosRestantes {
+    color: #d9534f;
+    background-color: #fdf2f2;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid #f8d7da;
+}
+
+#controles {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.grupo-input label {
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.grupo-input input[type="number"] {
+    width: 70px;
+    padding: 8px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.grupo-input input[type="number"]:focus {
+    outline: none;
+    border-color: #2193b0;
+    box-shadow: 0 0 8px rgba(33, 147, 176, 0.3);
+}
+
+button {
+    padding: 12px 22px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.boton-accion {
+    background-color: #5cb85c; /* Verde */
+    color: white;
+}
+
+.boton-accion:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.boton-secundario {
+    background-color: #0275d8; /* Azul */
+    color: white;
+}
+
+canvas {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fdfdfd;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+}

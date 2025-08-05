@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Matemático: Atina a la Diana</title>
+    <!-- Enlace a la hoja de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <header>
+            <h1>Tiro Parabólico</h1>
+            <p>Ajusta la parábola <strong>y = ax² + bx + c</strong> para que la pelota golpee la diana.</p>
+        </header>
+
+        <div class="panel-info">
+            <div id="coordenadasDiana"></div>
+            <div id="intentosRestantes"></div>
+        </div>
+
+        <div id="controles">
+            <div class="grupo-input">
+                <label for="a">a:</label>
+                <input type="number" id="a" value="-0.1" step="0.01">
+            </div>
+            <div class="grupo-input">
+                <label for="b">b:</label>
+                <input type="number" id="b" value="2" step="0.1">
+            </div>
+            <div class="grupo-input">
+                <label for="c">c:</label>
+                <input type="number" id="c" value="0" step="0.1" min="0">
+            </div>
+            <button id="iniciarBtn" class="boton-accion">¡Lanzar!</button>
+            <button id="cambiarNivelBtn" class="boton-secundario">Nuevo Nivel</button>
+        </div>
+
+        <canvas id="lienzoJuego" width="800" height="500"></canvas>
+    </div>
+
+    <!-- Enlace al archivo JavaScript (siempre al final del body) -->
+    <script src="script.js"></script>
+</body>
+</html>
