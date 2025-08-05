@@ -30,9 +30,7 @@ timestamp="$(date '+%Y-%m-%d %H:%M:%S')"
   if git push -u origin main; then
     echo "[$timestamp]  Push exitoso"
     notify-send "Git Auto Push" "✅ Push realizado con éxito"
-    git add .
-    git commit -m "Log"
-    git push -u origin main
+    
   else
     echo "[$timestamp] ❌ Error al hacer push"
     notify-send "Git Auto Push" "❌ Error al hacer push"
