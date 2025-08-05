@@ -12,3 +12,10 @@ Haciendo push...
 branch 'main' set up to track 'origin/main'.
 [2025-08-05 07:38:58]  Push exitoso
 ========== 2025-08-05 07:42:07 ==========
+Mensaje de commit (dejar vacío para 'Auto-commit'): Haciendo commit...
+[main cd5303b] Añadiendo Readme
+ 2 files changed, 8 insertions(+)
+ create mode 100644 README.md
+Haciendo push...
+branch 'main' set up to track 'origin/main'.
+[2025-08-05 07:42:07]  Push exitoso
